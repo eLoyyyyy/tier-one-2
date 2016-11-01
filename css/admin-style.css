@@ -1,0 +1,4 @@
+#widget-list div[id*="_tonetwo_"] .widget-top h3, #widget-list div[id*="_tier_one_two_"] .widget-top h3 {
+    background-color: #263238;
+    color: white;
+}

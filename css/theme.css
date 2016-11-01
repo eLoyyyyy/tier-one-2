@@ -1,0 +1,633 @@
+body {
+    font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+}
+
+/* navbar search fix ? */
+nav .nav-wrapper form, nav .nav-wrapper form .input-field{
+    height: 100%;
+}
+
+input[type="search"] {
+  height: 64px !important; /* or height of nav */
+}
+
+/* container for navbar adjustment */ 
+
+.container-navbar {
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 98%;
+} 
+
+@media only screen and (max-width: 600px) {
+  .container-navbar {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .container-navbar {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .container-navbar {
+    width: 90%;
+  }
+}
+
+.container {
+    max-width: 1440px;
+}
+
+nav ul li:hover {
+   background-color: white;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #263238;
+}
+
+.trend-image, .trend-image img, .trending, .trend-content {
+    position:relative;
+}
+
+.trend-image p {
+    position: absolute;
+    z-index: 2;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;
+    padding: 1px 25px;
+    font-style: italic;
+}
+
+.trend-image .trend-caption {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    padding: 18px;
+    background: rgba(33, 33, 33, 0.5);
+}
+
+.trend-caption > * {
+    color: #ffffff;
+}
+
+/* emulate heading styles */ 
+.h1 {
+  font-size: 4.2rem;
+  line-height: 110%;
+  margin: 2.1rem 0 1.68rem 0;
+}
+
+.h2 {
+  font-size: 3.56rem;
+  line-height: 110%;
+  margin: 1.78rem 0 1.424rem 0;
+}
+
+.h3 {
+  font-size: 2.92rem;
+  line-height: 110%;
+  margin: 1.46rem 0 1.168rem 0;
+}
+
+.h4 {
+  font-size: 2.28rem;
+  line-height: 110%;
+  margin: 1.14rem 0 0.912rem 0;
+}
+
+.h5 {
+  font-size: 1.64rem;
+  line-height: 110%;
+  margin: 0.82rem 0 0.656rem 0;
+}
+
+.h6 {
+  font-size: 1rem;
+  line-height: 110%;
+  margin: 0.5rem 0 0.4rem 0;
+}
+
+/* styles for '...' */ 
+.clamp {
+  /* hide text if it more than N lines  */
+  overflow: hidden;
+  /* for set '...' in absolute position */
+  position: relative; 
+  /* use this value to count block height */
+  line-height: 1.5em;
+  /* max-height = line-height (1.2) * lines max number (3) */
+  max-height: 6em; 
+  /* fix problem when last visible word doesn't adjoin right side  */
+  text-align: justify;  
+  /* place for '...' */
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+.clamp.clamp-six {
+  max-height: 9em; 
+}
+
+.clamp.clamp-five {
+  max-height: 7.5em; 
+}
+
+.clamp.clamp-four {
+  max-height: 6em; 
+}
+
+.clamp.clamp-three {
+  max-height: 4.5em; 
+}
+.clamp.clamp-two {
+  max-height: 3em; 
+}
+.clamp.clamp-one {
+  max-height: 1.5em; 
+}
+/* create the ... */
+.clamp:before {
+  /* points in the end */
+  content: '...';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 0;
+  bottom: 0;
+}
+/* hide ... if we have text, which is less than or equal to max lines */
+.clamp:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: white;
+}
+
+.subtrend {
+    display: block;
+}
+
+
+.subtrend .subtrend-image {
+    width: 16%;
+    margin-right:2%;
+}
+
+.subtrend .subtrend-content {
+    width: 80%;
+    margin-left:2%;
+}
+
+.subtrend > * {
+    float: left;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.side-image {
+    width:40%;
+    margin-right: 2%;
+}
+
+.side-content {
+    width: 56%;
+    margin-left: 2%;
+}
+
+.side-card > * {
+    float: left;
+}
+
+.collapsible-header.active i {
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+
+.date-header-mo {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    background-color: grey;
+    color: white;
+    vertical-align: middle;
+    font-size: 1.3em;
+    display:inline-block;
+    width:7%;
+    float:left;
+}
+
+.date-header-day {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    color: grey;
+    font-weight: bold;
+    margin-left: -4px;
+    vertical-align: middle;
+    font-size: 1.3em;
+    display:inline-block;
+    width:6%;
+    float:left;
+}
+
+
+.title-header {
+    border: 1px solid #e5e5e5;
+    padding: 4px;
+    background-color: #e5e5e5;
+    font-weight: bold;
+    display:inline-block;
+    width: 85%;
+    margin-left: 2px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width:673px;
+}
+
+.collapsible-header {
+    padding: 0;
+    width: 100%;
+}
+
+.collapsible-header.active .date-header-mo {
+  border-color: #ff8001;
+    background-color: #ff8001;
+}
+
+.collapsible-header.active .date-header-day {
+  border-color: #ff8001;
+    color: #ff8001;
+}
+
+.collapsible li:not(:last-child) {
+    padding-bottom: 5px;
+}
+
+.collapsible, .collapsible-header, .collapsible-body {
+    border: 0px solid transparent ;
+}
+
+.collapsible-body {
+    margin-bottom:10px;
+}
+
+.collapsible-body > .collapsible-image {
+    width: 35%;
+}
+
+.collapsible-body > .collapsible-content {
+    width: 65%;
+}
+
+.collapsible-body > .collapsible-image img {
+    padding-top: 1rem;
+}
+
+.collapsible-body > .collapsible-content p {
+    padding-top: 1rem;
+}
+
+.social-media-icons {
+    display: inline-block;
+    margin: 5px;
+    width:75px;
+    height:98px;
+}
+
+.tr-image, .tr-content {
+    float: left;
+}
+
+.tr-image {
+    width: 37%;
+    margin-right: 2%
+}
+
+.tr-content {
+    width: 59%;
+    margin-left: 2%
+}
+
+.tr-content h2 {
+    margin-top: 0px;
+}
+
+@media only screen and (min-width:993px) and (max-width:1200px) { 
+    .date-header-mo, .date-header-day {
+        display: none;
+    }
+    
+    .title-header, .collapsible-body > .collapsible-image, .collapsible-body > .collapsible-content {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:760px) { 
+    .date-header-mo, .date-header-day {
+        display: none;
+    }
+    
+    .title-header, .collapsible-body > .collapsible-image, .collapsible-body > .collapsible-content {
+        width: 100%;
+    }
+}
+
+.rating {
+    width: 100%;
+}
+
+.rating li {
+    display: table-cell;
+    width: 1%;
+}
+
+li.archive-item {
+    padding: 0.5em 1em 0.5em 3em;
+}
+.archive .archive-item:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.archive {
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ads {
+    display:inline-block;
+    position:relative;
+}
+
+.ads:nth-child(odd) {
+    padding-right: 5px;
+}
+
+.ads:nth-child(even) {
+    padding-left: 5px;
+}
+
+.ads:nth-child(-n+2) {
+    padding-bottom: 5px;
+}
+
+.ads:nth-last-child(-n+2) {
+    padding-top: 5px;
+}
+
+.ads:nth-child(3), .ads:nth-child(4){
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+
+.sr-only { 
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    width: 1px; 
+    margin: -1px; 
+    padding: 0; 
+    border: 0; 
+}
+
+header.container, nav.container, section.container, footer.container, main.container {
+    background-color: white;
+}
+
+.margin-top-fix  {
+    margin-top:-20px !important;
+}
+
+.button-collapse {
+    margin-left: 26px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container-navbar {
+    width: 90%;
+  }
+}
+
+.header-ad {
+    margin-top:26px;
+}
+
+.header-ad img {
+    width: 100%;
+}
+
+.slider .slides li .caption {
+    top: 52%;
+}
+
+div.preloader {
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    z-index: 999; 
+    width: 100%; 
+    height: 100%; 
+    overflow: visible; 
+}
+
+.spinner-white, .spinner-white-only {
+    border-color: #ffffff;
+}
+
+.responsive-img {
+    object-fit:cover;
+}
+
+.card img {
+    width: 100%;
+}
+
+.overlay {
+    opacity: 0.3;
+}
+
+/* override figure margins in materialize */
+
+figure.figure {
+    margin: 0px;
+}
+
+.breadcrumb:before {
+    color: rgba(0, 0, 0, 0.5); 
+}
+
+.nav-wrapper span:last-child .breadcrumb {
+    color: rgba(0, 0, 0, 1);    
+}
+
+.nav-wrapper span:first-child .breadcrumb:before {
+    display: none;
+}
+
+.nav-wrapper span .breadcrumb {
+    font-size: 14px;
+}
+
+.breadcrumb-list {
+    background-color: transparent;
+}
+
+.comment-avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 16px;
+}
+
+.depth-2 {
+    
+    padding-left:60px;
+}
+
+.comment-form.section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.size-full {
+    width:100%;
+    object-fit:cover;
+}
+
+@media only screen and (max-width: 992px) {
+    .archive-header .cat-header, .archive-header .cat-description{
+        text-align: center;
+    }   
+}
+
+/*menu justify*/
+.menu-justified {
+    width: 100%;
+    height: 64px;
+}
+.menu-justified>li {
+    float: none;
+    height: 90px;
+}
+.menu-justified>li>a {
+    text-align: center;
+    width: 100%;
+    line-height: 90px;
+    font-size: 1.5em;
+}
+.menu-justified:hover > li.active {
+     background-color: transparent;
+}
+
+@media (min-width: 600px) {
+    .menu-justified>li {
+        display: table-cell;
+        width: 1%;
+    }
+}
+/*menu justify*/
+
+.pagination li {
+    height: 40px;
+}
+
+.pagination li a { 
+    line-height: 40px;
+}
+
+.btn-large span, btn-large * {
+    font-size: 1.6rem;
+}
+
+.top-rates .tr-image img {
+    width: 100%;
+}
+
+nav.comment-nav-* a {
+    color: #000000;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main.container {
+    flex: 1 0 auto;
+}
+
+.four-o-four {
+    display: inline-block;
+    width: 650px;
+    height: 460px;
+}
+
+.four-o-four-wrapper {
+    background-color:#cccccc;
+    filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#cccccc, endColorstr=#ffffff);
+    background-image:-moz-linear-gradient(top, #cccccc 0%, #ffffff 50%,#e6e6e6 50%);
+    background-image:linear-gradient(top, #cccccc 0%, #ffffff 50%,#e6e6e6 50%);
+    background-image:-webkit-linear-gradient(top, #cccccc 0%, #ffffff 50%,#e6e6e6 50%);
+    background-image:-o-linear-gradient(top, #cccccc 0%, #ffffff 50%,#e6e6e6 50%);
+    background-image:-ms-linear-gradient(top, #cccccc 0%, #ffffff 50%,#e6e6e6 50%);
+    background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,#cccccc), color-stop(50%,#ffffff),color-stop(50%,#e6e6e6));
+}
+
+.four-o-four-wrapper a {
+    color: red;
+    font-weight: bold;
+}
+.four-o-four-wrapper {
+    font-size: 1.5em;
+    line-height: 0.5em;
+}
+
+.four-o-four-wrapper, section.container {
+    padding-top: 50px;
+}
+
+.four-o-four-wrapper {
+    padding-bottom: 50px;
+}
+
+.social-media-icons i {
+    line-height: 98px;
+    color: #ffffff;
+}
+
+.facebook { background-color: #3b5b98;}
+.google-plus { background-color: #e64a55;}
+.twitter { background-color: #60cbef;}
+.rss { background-color: #f05223;}
+.youtube { background-color: #ca2128;}
+.pinterest { background-color: #850d16;}
+.instagram { background-color: #356596;}
+
