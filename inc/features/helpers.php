@@ -68,13 +68,31 @@ remove_filter( 'the_excerpt', 'wpautop' );
 // Remove issues with prefetching adding extra views
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
+$lang_support = array( 
+    'yoast' => array (
+        'id' => 'id_ID',
+        'vn' => 'vi_VN', 
+        'my' => 'ms_MY', 
+        'en' => 'en_US'
+    ),
+    'html' => array(
+        'id' => 'id',
+        'vn' => 'vi', 
+        'my' => 'ms', 
+        'en' => 'en'
+    )
+    
+);
+
 function __language_attributes($lang){
 
   // ignore the supplied argument
-  $langs = array( 'id', 'vi', 'ms', 'en' );
+  //$langs = array( 'id', 'vi', 'ms', 'en' );
+  global $lang_support;
 
   // change to whatever you want
-  $my_language = $langs[0];
+  $lang = get_theme_mod( 'force_locale', 'en' );
+  $my_language = $lang_support['html'][$lang];
 
   // return the new attribute
   return 'lang="'.$my_language.'"';
@@ -82,7 +100,11 @@ function __language_attributes($lang){
 add_filter('language_attributes', '__language_attributes');
 
 function yst_wpseo_change_og_locale( $locale ) {
- 	return 'id_ID'; // vi_VN , ms_MY
+    global $lang_support;
+
+    // change to whatever you want
+    $lang = get_theme_mod( 'force_locale', 'en' );
+    return $lang_support['yoast'][$lang];
 }
 add_filter( 'wpseo_locale', 'yst_wpseo_change_og_locale' );
 

@@ -42,6 +42,12 @@ endif; ?>
                 </noscript>
                 <![endif]-->
             
+            <?php 
+                if ( function_exists('facebook_javascript_sdk') && is_single() ) :
+                    facebook_javascript_sdk(); 
+                endif; 
+            ?>
+            
             <div class="preloader valign-wrapper blue-grey darken-4">
                 <div class="preloader-wrapper valign big active" style="margin: 0 auto;">
                     <div class="spinner-layer spinner-white-only">

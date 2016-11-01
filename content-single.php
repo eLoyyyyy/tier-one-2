@@ -134,6 +134,8 @@ endif;
                          comments_template();              
                 ?>
                 
+                <div class="fb-comments" data-href="<?php the_permalink(); ?>" data-numposts="5" data-width="100%"></div>
+                
                 <?php tieronetwo_next_prev_link();?> 
             </div>
             <div class="col l4 m12 s12">

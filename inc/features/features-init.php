@@ -210,19 +210,49 @@ function tieronetwo_customize_register($wp_customize)
             'type'      	=> 'radio',
             'description'	=> __( 'Choose your preferred option.', 'tieronetwo' ),
             'choices'   => array (
-                'text-only' 	=> __( 'Display site title and description only.', 'tierone' ),
-                'logo-only'     => __( 'Display site logo image only.', 'tierone' ),
-                'text-logo'		=> __( 'Display both site title and logo image.', 'tierone' ),
-                'display-none'	=> __( 'Display none', 'tierone' )
+                'text-only' 	=> __( 'Display site title and description only.', 'tieronetwo' ),
+                'logo-only'     => __( 'Display site logo image only.', 'tieronetwo' ),
+                'text-logo'		=> __( 'Display both site title and logo image.', 'tieronetwo' ),
+                'display-none'	=> __( 'Display none', 'tieronetwo' )
+            )
+        )
+    );
+    
+    $wp_customize->add_section( 
+        'tieronetwo_locale' , 
+        array(
+            'title'      => __( 'Locale', 'tieronetwo' ),
+            'priority'   => 30,
+        ) 
+    );
+    
+    $wp_customize->add_setting(
+        'force_locale',
+        array (
+            'default'           => 'en',
+        )
+    );
+    $wp_customize->add_control(
+        'force_locale',
+        array(
+            'label'     	=> __( 'Pick Locale.', 'tieronetwo' ),
+            'section'   	=> 'tieronetwo_locale',
+            'type'      	=> 'select',
+            'description'	=> __( 'Choose your language.', 'tieronetwo' ),
+            'choices'   => array (
+                'en'    => __( 'English', 'tieronetwo'),
+                'id'    => __( 'Indonesian', 'tieronetwo' ),
+                'vn'    => __( 'Vietnamese', 'tieronetwo' ),
+                'my'    => __( 'Malaysian', 'tieronetwo' ),
             )
         )
     );
 
-   /* // Site favicon
+   // Site favicon
 	$wp_customize->add_setting(
         'site_favicon',
         array(
-            'sanitize_callback' => 'tierone_sanitize_image'
+            'sanitize_callback' => 'tieronetwo_sanitize_image'
         ) 
     ); 
     $wp_customize->add_control(
@@ -230,10 +260,10 @@ function tieronetwo_customize_register($wp_customize)
             $wp_customize,
             'site_favicon',
             array(
-                'label'         => __( 'Upload a favicon', 'tierone' ),
+                'label'         => __( 'Upload a favicon', 'tieronetwo' ),
                 'section'       => 'title_tagline',
                 'settings'      => 'site_favicon',
-                'description' 	=> __( 'Upload a favicon for your website.', 'tierone' ),
+                'description' 	=> __( 'Upload a favicon for your website.', 'tieronetwo' ),
             )
         )
     );
@@ -243,7 +273,7 @@ function tieronetwo_customize_register($wp_customize)
 		'display_site_favicon',
 		array(
 			'default'			=> false,
-			'sanitize_callback'	=> 'tierone_sanitize_checkbox'
+			'sanitize_callback'	=> 'tieronetwo_sanitize_checkbox'
 		)
 	);
     $wp_customize->add_control(
@@ -252,9 +282,9 @@ function tieronetwo_customize_register($wp_customize)
 			'settings'		=> 'display_site_favicon',
 			'section'		=> 'title_tagline',
 			'type'			=> 'checkbox',
-			'label'			=> __( 'Display site favicon?', 'tierone' ),
+			'label'			=> __( 'Display site favicon?', 'tieronetwo' ),
 		)
-	);*/
+	);
 }
 add_action( 'customize_register', 'tieronetwo_customize_register' );
 
@@ -279,11 +309,16 @@ function tieronetwo_sanitize_image( $image, $setting ) {
 }
 
 function tieronetwo_sanitize_logo_title_select( $logo_option ) {
-	if ( ! in_array( $logo_option, array( 'text-only', 'logo-only', 'text-logo', 'display-none' ) ) ) {
+	if ( ! in_array( $logo_option, array( 'id_ID' ) ) ) {
         $logo_option = 'text-description-only';
     } 
 
     return $logo_option;
+}
+
+function tieronetwo_sanitize_checkbox( $checked ) {
+	// Boolean check.
+	return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
 
 function custom_loginlogo() {
@@ -303,3 +338,16 @@ function custom_loginlogo() {
     endif;
 }
 add_action('login_head', 'custom_loginlogo');
+
+function facebook_javascript_sdk(){
+    ?>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <?php
+}
