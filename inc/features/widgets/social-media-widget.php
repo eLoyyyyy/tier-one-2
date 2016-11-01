@@ -31,8 +31,6 @@ class tonetwo_social_media_widget extends WP_Widget {
         $pinterest = $instance['pinterest'];
         $instagram = $instance['instagram'];
         
-        // before and after widget arguments are defined by themes
-        echo $args['before_widget'];
         
         ?>
         <aside>
@@ -71,7 +69,6 @@ class tonetwo_social_media_widget extends WP_Widget {
 
         // This is where you run the code and display the output
         echo __( $rp, 'wpb_widget_domain' );
-        echo $args['after_widget'];
     }
 
     // Updating widget replacing old instances with new

@@ -25,10 +25,7 @@ class tonetwo_archive_widget extends WP_Widget {
         if (! empty( $instance['title'] ) ) { $title = apply_filters('widget_title', $instance['title'] ); }
         if (! empty( $args['before_widget'] ) ) { $before_widget = $args['before_widget']; }
         if (! empty( $args['after_widget'] ) ) { $after_widget = $args['after_widget']; }
-        
-        // before and after widget arguments are defined by themes
-        echo $before_widget;
-        
+                
         ?>
         <aside>
             <div class="section">
@@ -57,7 +54,6 @@ class tonetwo_archive_widget extends WP_Widget {
         <div class="divider"></div>
 
         <?php
-        echo $after_widget;
     }
 
     // Widget Backend 

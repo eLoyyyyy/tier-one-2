@@ -23,8 +23,6 @@ class tonetwo_top_rated_widget extends WP_Widget {
     // This is where the action happens
     public function widget( $args, $instance ) {
         $title = apply_filters( 'widget_title', $instance['title'] );
-        // before and after widget arguments are defined by themes
-        echo $args['before_widget'];
         
         $args = array(
             'posts_per_page' => 5,
@@ -80,7 +78,6 @@ class tonetwo_top_rated_widget extends WP_Widget {
 
         // This is where you run the code and display the output
         echo __( $rp, 'wpb_widget_domain' );
-        echo $args['after_widget'];
     }
 
     // Widget Backend 
