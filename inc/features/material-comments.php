@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 function materialized_reply_link_class($class){
     $class = str_replace("class='comment-reply-link", "class='waves-effect waves-light btn", $class);
     return $class;

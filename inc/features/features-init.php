@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 /*Sidebar*/
 if ( !function_exists( 'tieronetwo_sidebar' ) ):
     function tieronetwo_sidebar() {

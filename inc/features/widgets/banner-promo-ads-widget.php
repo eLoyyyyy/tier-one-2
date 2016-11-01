@@ -1,5 +1,9 @@
 <?php 
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 class tonetwo_promo_ads_widget extends WP_Widget {
 
 

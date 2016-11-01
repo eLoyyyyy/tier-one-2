@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 class wp_materialize_navwalker extends Walker {
   var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
     function start_lvl( &$output, $depth = 0, $args = array() ) {

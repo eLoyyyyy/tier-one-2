@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 // Creating the widget 
 class tonetwo_top_rated_widget extends WP_Widget {
 

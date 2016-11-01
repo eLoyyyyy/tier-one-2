@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 /* rating system */
 add_action('wp_ajax_nopriv_post-like', 'post_like');
 add_action('wp_ajax_post-like', 'post_like');

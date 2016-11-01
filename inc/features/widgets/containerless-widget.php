@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 class Tier_One_Two_Widget extends WP_Widget{
     
     function __construct() {

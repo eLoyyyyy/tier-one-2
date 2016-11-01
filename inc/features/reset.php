@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 function full_reset(){
 	/*http://wordpress.stackexchange.com/questions/207104/edit-theme-wp-head*/
 	// Removes the wlwmanifest link
