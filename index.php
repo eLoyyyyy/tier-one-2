@@ -76,7 +76,7 @@ get_header(); ?>
                             <div class="card-content">
                                 <?php the_excerpt(); ?>
                             </div>
-                            <div class="card-action">
+                            <div class="card-action white">
                                 <p class="postmetadata">
                                   <?php comments_popup_link( 'No comments yet', '1 comment', '% comments', 'comments-link', 'Comments closed'); ?> 
                                 </p>

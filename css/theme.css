@@ -630,4 +630,27 @@ main.container {
 .youtube { background-color: #ca2128;}
 .pinterest { background-color: #850d16;}
 .instagram { background-color: #356596;}
+.reddit { background-color: #ff4500;}
+.linkedin { background-color: #0077b5;}
 
+.facebook:hover { background-color: #5a8be6;}
+.google-plus:hover { background-color: #f78c94;}
+.twitter:hover { background-color: #9fe7ff;}
+.rss:hover { background-color: #f05223;}
+.youtube:hover { background-color: #ca2128;}
+.pinterest:hover { background-color: #e51728;}
+.instagram:hover { background-color: #356596;}
+.reddit:hover { background-color: #ff7c4b;}
+.linkedin:hover { background-color: #009df2;}
+
+.sm-action {
+    position: fixed;
+    top: 206px;
+    left: 173px;
+    border: 2px solid white;
+    width:108px;
+}
+
+.sm-action > a {
+    display: block;
+}

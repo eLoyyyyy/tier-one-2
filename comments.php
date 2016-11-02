@@ -111,19 +111,7 @@ $replyargs = array(
         <div class="comment-form section grey lighten-4">
             <?php comment_form($commentargs); ?>
         </div>
-        <div class="divider"></div>
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-        <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-            <h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'materialized' ); ?></h2>
-            <div class="nav-links">
-
-                <div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'materialized' ) ); ?></div>
-                <div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'materialized' ) ); ?></div>
-
-            </div><!-- .nav-links -->
-        </nav><!-- #comment-nav-above -->
-		<?php endif; // check for comment navigation ?>
- 
+        <div class="divider"></div> 
 		<div class="comment-list" itemscope itemtype="http://schema.org/UserComments">
 			<?php
 				wp_list_comments($replyargs);
@@ -131,15 +119,14 @@ $replyargs = array(
 		</div><!-- .comment-list -->
  
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'materialized' ); ?></h2>
-			<div class="nav-links">
- 
-				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'materialized' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'materialized' ) ); ?></div>
+		<div id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+			<div class="nav-links row clearfix">
+                <h2 class="h5 center-align">Read More Comments:</h2>
+				<div class="nav-previous col l6 m6 s6 center-align"><?php previous_comments_link( __( '&laquo; Older Comments', 'materialized' ) ); ?></div>
+				<div class="nav-next col l6 m6 s6 center-align"><?php next_comments_link( __( 'Newer Comments &raquo;', 'materialized' ) ); ?></div>
  
 			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-below -->
+		</div><!-- #comment-nav-below -->
 		<?php endif; // check for comment navigation ?>
  
 	<?php endif; // have_comments() ?>

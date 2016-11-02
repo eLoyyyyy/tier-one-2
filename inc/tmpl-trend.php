@@ -32,15 +32,15 @@ endif; ?>
                 <?php if (has_post_thumbnail() ) { ?>
                 <meta itemprop="url" content="<?php the_post_thumbnail_url(); ?>">
                 <?php
-                    $file = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); 
+                    $file = wp_get_attachment_url( get_post_thumbnail_id() ); 
                     if (if_file_exists($file)) :
                         list($width, $height, $type, $attr) = getimagesize($file);  ?>
                         <meta itemprop="width" content="<?php echo $width; ?>">
                         <meta itemprop="height" content="<?php echo $height; ?>">
                     <?php endif; ?>
                     <a href="<?php the_permalink(); ?>">
-                        <img style="height:234px" class="responsive-img" 
-                 src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" itemprop="image">
+                        <img class="responsive-img" 
+                 src="<?php the_post_thumbnail_url( 'trend' ); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" itemprop="image">
                     </a>
                 <?php } else { ?>
                 <meta itemprop="url" content="<?php echo get_first_image(); ?>">

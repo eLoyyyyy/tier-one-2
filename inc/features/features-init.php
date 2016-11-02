@@ -75,68 +75,81 @@ endif;
 
 /* custom background */ 
 
-global $wp_version;
+
 
 if ( ! function_exists( 'change_custom_background_cb' ) ) :
 
-function change_custom_background_cb() {
-    $background = get_background_image();
-    $color = get_background_color();
+    function change_custom_background_cb() {
+        $background = get_background_image();
+        $color = get_background_color();
 
-    if ( ! $background && ! $color )
-        return;
+        if ( ! $background && ! $color )
+            return;
 
-    $style = $color ? "background-color: #$color;" : '';
+        $style = $color ? "background-color: #$color;" : '';
 
-    if ( $background ) {
-        $image = " background-image: url('$background');";
+        if ( $background ) {
+            $image = " background-image: url('$background');";
 
-        $repeat = get_theme_mod( 'background_repeat', 'repeat' );
+            $repeat = get_theme_mod( 'background_repeat', 'repeat' );
 
-        if ( ! in_array( $repeat, array( 'no-repeat', 'repeat-x', 'repeat-y', 'repeat' ) ) )
-            $repeat = 'repeat';
+            if ( ! in_array( $repeat, array( 'no-repeat', 'repeat-x', 'repeat-y', 'repeat' ) ) )
+                $repeat = 'repeat';
 
-        $repeat = " background-repeat: $repeat;";
+            $repeat = " background-repeat: $repeat;";
 
-        $position = get_theme_mod( 'background_position_x', 'left' );
+            $position = get_theme_mod( 'background_position_x', 'left' );
 
-        if ( ! in_array( $position, array( 'center', 'right', 'left' ) ) )
-            $position = 'left';
+            if ( ! in_array( $position, array( 'center', 'right', 'left' ) ) )
+                $position = 'left';
 
-        $position = " background-position: top $position;";
+            $position = " background-position: top $position;";
 
-        $attachment = get_theme_mod( 'background_attachment', 'scroll' );
+            $attachment = get_theme_mod( 'background_attachment', 'scroll' );
 
-        if ( ! in_array( $attachment, array( 'fixed', 'scroll' ) ) )
-            $attachment = 'scroll';
+            if ( ! in_array( $attachment, array( 'fixed', 'scroll' ) ) )
+                $attachment = 'scroll';
 
-        $attachment = " background-attachment: $attachment;";
+            $attachment = " background-attachment: $attachment;";
 
-        $style .= $image . $repeat . $position . $attachment;
+            $style .= $image . $repeat . $position . $attachment;
+        }
+        ?>
+            <style type="text/css" id="custom-background-css">
+                .custom-background { <?php echo trim( $style ); ?> }
+            </style>
+        <?php
     }
-?>
-<style type="text/css" id="custom-background-css">
-    .custom-background { <?php echo trim( $style ); ?> }
-</style>
-<?php
-}
-if ( version_compare( $wp_version, '3.4', '>=' ) ) {
-    add_theme_support( 'custom-background', array( 'wp-head-callback' => 'change_custom_background_cb','default-color' => 'fff' ) );
-}
-else {
-    add_custom_background('change_custom_background_cb');
-}
 
 endif;
 
-/* end custom background */
-
-add_theme_support('nav-menus');
-
-add_theme_support('post-thumbnails');
-add_theme_support('post-formats', array('aside','image','video'));
-add_theme_support('featured' ,388, 220, true );
-add_theme_support('html5',array('search-form','comment-form','comment-list','gallery','caption'));
+function tieronetwo_setup_theme(){
+    
+    global $wp_version;
+    
+    add_theme_support( 'nav-menus' );
+    add_theme_support( 'post-thumbnails' ); 
+    add_theme_support( 'post-formats', array('aside','image','video') );
+    add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption') );
+    
+    if ( version_compare( $wp_version, '3.4', '>=' ) ) {
+        add_theme_support( 'custom-background', array( 'wp-head-callback' => 'change_custom_background_cb','default-color' => 'fff' ) );
+    }
+    else {
+        add_custom_background('change_custom_background_cb');
+    }
+    
+    add_image_size( 'front-page-slider', 522, 534, true);
+    add_image_size( 'trend', 217, 234, true );    
+    add_image_size( 'trend2', 249, 305, true );
+    add_image_size( 'trend3a', 520, 306, true );
+    add_image_size( 'trend3b', 90, 90, true );
+    add_image_size( 'trend4', 201, 201, true );
+    add_image_size( 'trend5', 259, 145, true );
+    add_image_size( 'list', 396, 401, true );
+    
+}
+add_action( 'after_setup_theme', 'tieronetwo_setup_theme' );
 
 register_nav_menus(
     array(
@@ -351,3 +364,5 @@ function facebook_javascript_sdk(){
     }(document, 'script', 'facebook-jssdk'));</script>
     <?php
 }
+
+

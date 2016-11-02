@@ -75,29 +75,6 @@ endif;
                     <div itemprop="articleBody" class="flow-text"><?php the_content();?></div>
                 </div>
                 <div class="divider"></div>
-                <div class="section center-align">
-                    <?php echo setPostLike(get_the_ID());?>
-                    <?php $url = get_the_permalink(); $url = esc_url($url);?>
-                    <a class="blue-grey darken-4 btn-large btn" href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target='_blank'>
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a class="blue-grey darken-4 btn-large btn" target='_blank' href='https://twitter.com/share?url=<?php echo $url; ?>'>
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a class="blue-grey darken-4 btn-large btn" target='_blank' href='http://www.linkedin.com/shareArticle?url=<?php echo $url; ?>'>
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                    <a class="blue-grey darken-4 btn-large btn" target='_blank' href='http://reddit.com/submit?url=<?php echo $url; ?>'>
-                        <i class="fa fa-reddit-alien" aria-hidden="true"></i>
-                    </a>
-                    <a class="blue-grey darken-4 btn-large btn" target='_blank' href='https://plus.google.com/share?url=<?php echo $url; ?>'>
-                        <i class="fa fa-google-plus" aria-hidden="true"></i>
-                    </a>
-                    <a class="blue-grey darken-4 btn-large btn" target='_blank' href='http://pinterest.com/pin/create/link/?url=<?php echo $url; ?>'>
-                        <i class="fa fa-pinterest" aria-hidden="true"></i>
-                    </a>
-                </div>
-                <div class="divider"></div>
                 <div class="section">
                     <p>
                     This entry was posted
@@ -143,6 +120,30 @@ endif;
             </div>
         </div>
 </article>
+
+<div class="sm-action center-align">
+    <?php echo setPostLike(get_the_ID());?>
+    <?php $url = get_the_permalink(); $url = esc_url($url);?>
+    <a class="facebook btn-large btn" href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target='_blank'>
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+    </a>
+    <a class="twitter btn-large btn" target='_blank' href='https://twitter.com/share?url=<?php echo $url; ?>'>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+    </a>
+    <a class="linkedin btn-large btn" target='_blank' href='http://www.linkedin.com/shareArticle?url=<?php echo $url; ?>'>
+        <i class="fa fa-linkedin" aria-hidden="true"></i>
+    </a>
+    <a class="reddit btn-large btn" target='_blank' href='http://reddit.com/submit?url=<?php echo $url; ?>'>
+        <i class="fa fa-reddit-alien" aria-hidden="true"></i>
+    </a>
+    <a class="google-plus btn-large btn" target='_blank' href='https://plus.google.com/share?url=<?php echo $url; ?>'>
+        <i class="fa fa-google-plus" aria-hidden="true"></i>
+    </a>
+    <a class="pinterest btn-large btn" target='_blank' href='http://pinterest.com/pin/create/link/?url=<?php echo $url; ?>'>
+        <i class="fa fa-pinterest" aria-hidden="true"></i>
+    </a>
+</div>
+<div class="divider"></div>
 
         
         
