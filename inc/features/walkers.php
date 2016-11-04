@@ -73,7 +73,7 @@ class wp_materialize_navwalker extends Walker {
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-        $attributes .= ! empty( $children )         ? ' data-activates="dropdown-'. $item->ID .'"' : '';
+        $attributes .= ! empty( $children )         ? ' data-activates="dropdown-'. $item->ID .'" data-beloworigin="true" ' : '';
         $attributes .= ! empty( $children )         ? ' class="dropdown-button '. $depth_class_names .'"' : '';
         $item_output .= '<a itemprop="url" '. $attributes .'>';
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;

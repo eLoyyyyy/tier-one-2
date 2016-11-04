@@ -193,10 +193,12 @@ function tieronetwo_next_prev_link()
         $prev_post = get_previous_post();
         $next_post = get_next_post();
     ?>
-        
+
+
+
     <ul class="page-numbers menu-justified center-align">
-        <li class="previous"><a rel="prev" href="<?php echo get_permalink($prev_post->ID) ;?>" class=" ">&laquo; Previous post</a></li>
-        <li class="next"><a rel="next" href="<?php echo get_permalink($next_post->ID) ;?>" class=" ">Next post &raquo;</a></li>
+        <li class="previous"><a rel="prev" href="<?php echo get_permalink($prev_post->ID) ;?>" class=" ">&laquo; Previous <?php echo ( is_single() ? 'post' : ( is_attachment() ? 'media' : '') ); ?></a></li>
+        <li class="next"><a rel="next" href="<?php echo get_permalink($next_post->ID) ;?>" class=" ">Next <?php echo ( is_single() ? 'post' : ( is_attachment() ? 'media' : '') ); ?> &raquo;</a></li>
     </ul>
     <?php endif;
 }

@@ -113,11 +113,12 @@ get_header(); ?>
                 global $wp_query;
                 pagination($wp_query->max_num_pages);
 
-                else: ?>
-                <p>Sorry, no posts matched your criteria.</p>
-
-
-                <?php endif; ?>
+                else: 
+                
+                    get_template_part('content', 'none');
+                
+                
+                endif; ?>
             </div>
             <div class="col l4 m12">
                 <?php get_sidebar(); ?>

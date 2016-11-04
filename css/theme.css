@@ -689,3 +689,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+
+.input-field input[type=search]:focus,
+.input-field input[type=text]:focus{
+    border-bottom: 1px solid #263238;
+    box-shadow: 0 1px 0 0 #263238;
+}
