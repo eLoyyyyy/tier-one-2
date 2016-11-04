@@ -68,20 +68,21 @@ endif; ?>
             <header class="container">
                 <div class="container-navbar">
                     <div class="row">
-                        <div class="col l6 m12 s12">
+                        <?php $lsix = ( is_active_sidebar( 'horizontal-ad-head' ) ) ? 'l4' : 'l12'; ?>
+                        <div class="col <?php echo $lsix; ?> m12 s12 center-align">
                             <?php  
                                 $logo = get_theme_mod( 'site_logo', '' );
                                 $title_option = get_theme_mod( 'site_title_option', 'text-only' );
 
                                 if ( $title_option == 'logo-only' && ! empty($logo) ) { ?>
                                     <div class="site-logo">
-                                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $logo ); ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+                                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $logo ); ?>" alt="<?php bloginfo( 'name' ); ?>" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>"></a>
                                     </div>
                                 <?php } 
 
                                 if ( $title_option == 'text-logo' && ! empty($logo) ) { ?>
                                     <div class="site-logo">
-                                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $logo ); ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+                                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $logo ); ?>" alt="<?php bloginfo( 'name' ); ?>" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>"></a>
                                     </div>
                                     <div class="site-title-text">
                                             <h1 class="h2" itemprop="headline"><a itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -102,13 +103,13 @@ endif; ?>
                                     </div>
                             <?php } ?>
                         </div>
-                        <div class="col l6 m12 s12">
-                            <?php if ( is_active_sidebar( 'horizontal-ad-head' ) ) : ?>
+                        <?php if ( $lsix ) : ?>
+                            <div class="col l8 m12 s12">
                                 <div class="header-ad">
                                     <?php dynamic_sidebar( 'horizontal-ad-head' ); ?> 
                                 </div><!--header ad-->
-                            <?php endif; ?> 
-                        </div>
+                            </div>
+                        <?php endif; ?> 
                     </div>
                 </div>
             </header>
@@ -117,7 +118,7 @@ endif; ?>
                 <div class="container-navbar nav-wrapper">
                     <div class="row">
                         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                        <div class="col s8">
+                        <div class="col l12 m12 s12">
                             <?php 
                                  wp_nav_menu( array(
                                      'container'=> false,
@@ -127,10 +128,14 @@ endif; ?>
                                 ));
                             ?>
                         </div>
-                        <div class="col s4">
-                            <?php get_search_form(); ?>
-                        </div>
+                        <!-- col s4
+                        <div class="col l4 hide-on-med-and-below">
+                            <?php //get_search_form(); ?>
+                        </div>  -->
+                        
+                        <!-- submenu -->
                         <?php create_materialize_submenu('primary'); ?>
+                        <!-- end submenu -->
                     </div>
                 </div>
             </nav>

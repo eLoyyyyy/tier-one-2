@@ -48,5 +48,9 @@ endif; ?>
     </footer>
 
     <?php wp_footer(); ?>
+
+    <?php if ( is_active_sidebar( 'palawit_sidebar' ) ) : 
+            dynamic_sidebar( 'palawit_sidebar' ); 
+    endif; ?> 
     </body>
 </html>

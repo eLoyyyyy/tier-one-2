@@ -53,13 +53,20 @@ class tonetwo_top_rated_widget extends WP_Widget {
                     <div class="tr-image">
                         <!-- <img class="responsive-img" src="http://placehold.it/143x86"/> -->
                         <?php if (has_post_thumbnail() ) { ?>
+                        <?php
+                            $file = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()), 'top-rated'); 
+                            $anchor = get_the_title();
+                        ?>
                             <a href="<?php the_permalink(); ?>">
-                                <img style="height:86px" class="responsive-img" 
-                         src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" itemprop="image">
+                                <img class="responsive-img" 
+                         src="<?php the_post_thumbnail_url( 'top-rated' ); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" itemprop="image" title="<?php echo $anchor; ?>" alt="<?php echo $anchor; ?>">
                             </a>
                         <?php } else { ?>
+                        <?php
+                            $file = wp_get_attachment_image_url( get_attachment_id( get_first_image() ), 'top-rated' ); 
+                        ?>
                             <a href="<?php the_permalink(); ?>">
-                                <img class="responsive-img" src="<?php echo get_first_image(); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" style="height:86px" itemprop="image" />
+                                <img class="responsive-img" src="<?php echo $file; ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" itemprop="image" title="<?php echo $anchor; ?>" alt="<?php echo $anchor; ?>" />
                             </a>
                         <?php } ?>
                     </div>

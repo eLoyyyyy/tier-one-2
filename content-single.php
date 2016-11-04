@@ -107,11 +107,14 @@ endif;
                 
                 <?php
                     get_template_part( 'content', 'related' ); //related post
-                    if ( comments_open() || '0' != get_comments_number() )
-                         comments_template();              
                 ?>
                 
                 <div class="fb-comments" data-href="<?php the_permalink(); ?>" data-numposts="5" data-width="100%"></div>
+                
+                <?php
+                    if ( comments_open() || '0' != get_comments_number() )
+                         comments_template();              
+                ?>
                 
                 <?php tieronetwo_next_prev_link();?> 
             </div>
@@ -121,28 +124,7 @@ endif;
         </div>
 </article>
 
-<div class="sm-action center-align">
-    <?php echo setPostLike(get_the_ID());?>
-    <?php $url = get_the_permalink(); $url = esc_url($url);?>
-    <a class="facebook btn-large btn" href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target='_blank'>
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-    </a>
-    <a class="twitter btn-large btn" target='_blank' href='https://twitter.com/share?url=<?php echo $url; ?>'>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-    </a>
-    <a class="linkedin btn-large btn" target='_blank' href='http://www.linkedin.com/shareArticle?url=<?php echo $url; ?>'>
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-    </a>
-    <a class="reddit btn-large btn" target='_blank' href='http://reddit.com/submit?url=<?php echo $url; ?>'>
-        <i class="fa fa-reddit-alien" aria-hidden="true"></i>
-    </a>
-    <a class="google-plus btn-large btn" target='_blank' href='https://plus.google.com/share?url=<?php echo $url; ?>'>
-        <i class="fa fa-google-plus" aria-hidden="true"></i>
-    </a>
-    <a class="pinterest btn-large btn" target='_blank' href='http://pinterest.com/pin/create/link/?url=<?php echo $url; ?>'>
-        <i class="fa fa-pinterest" aria-hidden="true"></i>
-    </a>
-</div>
+<?php tieronetwo_social_sharing(); ?>
 <div class="divider"></div>
 
         

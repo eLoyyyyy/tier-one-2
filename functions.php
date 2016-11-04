@@ -11,9 +11,9 @@ require get_template_directory() . '/inc/features/helpers.php';
 require get_template_directory() . '/inc/features/features-init.php';
 
 function tier_one_two_styles_scripts(){
-    wp_register_style('tier-one-two-style', get_stylesheet_directory_uri() . '/css/style.css');
+    wp_register_style('tier-one-two-style', get_stylesheet_directory_uri() . '/css/style.min.css');
     wp_enqueue_style('tier-one-two-style');
-    wp_register_script('tier-one-two-script', get_stylesheet_directory_uri() . '/js/scripts.js');
+    wp_register_script('tier-one-two-script', get_stylesheet_directory_uri() . '/js/scripts.min.js');
     wp_enqueue_script('tier-one-two-script');
     
     /* rating system */ 
@@ -27,6 +27,17 @@ function tier_one_two_styles_scripts(){
     wp_enqueue_style('material-icon', 'http://fonts.googleapis.com/icon?family=Material+Icons');
 }
 add_action('wp_enqueue_scripts', 'tier_one_two_styles_scripts');
+
+/*** Remove Query String from Static Resources ***/
+function remove_cssjs_ver( $src ) {
+    if( strpos( $src, '?ver=' ) || strpos( $src, '&ver=' ) ) {
+        $src = remove_query_arg( 'ver', $src );
+    }
+    
+    return esc_url($src);
+}
+add_filter( 'style_loader_src', 'remove_cssjs_ver');
+add_filter( 'script_loader_src', 'remove_cssjs_ver');
 
 
 require get_stylesheet_directory() . '/inc/features/walkers.php';

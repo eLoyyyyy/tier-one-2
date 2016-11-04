@@ -73,6 +73,23 @@ if ( !function_exists( 'footer_content_sidebar' ) ):
     add_action( 'after_setup_theme', 'footer_content_sidebar' );
 endif;
 
+if ( !function_exists( 'palawit_sidebar' ) ):
+    function palawit_sidebar() {
+
+        register_sidebar( array(
+            'name' => __( 'Before Body Sidebar', 'tieronetwo' ),
+            'id' => 'palawit_sidebar',
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<h5 class="white-text">',
+            'after_title' => '</h5>',
+            'description' => __( 'This is where you add additional banners and what not on the document', 'tieronetwo' ),
+        ) );
+
+    }
+    add_action( 'after_setup_theme', 'palawit_sidebar' );
+endif;
+
 /* custom background */ 
 
 
@@ -147,6 +164,7 @@ function tieronetwo_setup_theme(){
     add_image_size( 'trend4', 201, 201, true );
     add_image_size( 'trend5', 259, 145, true );
     add_image_size( 'list', 396, 401, true );
+    add_image_size( 'top-rated', 143, 86, true );
     
 }
 add_action( 'after_setup_theme', 'tieronetwo_setup_theme' );
@@ -322,8 +340,8 @@ function tieronetwo_sanitize_image( $image, $setting ) {
 }
 
 function tieronetwo_sanitize_logo_title_select( $logo_option ) {
-	if ( ! in_array( $logo_option, array( 'id_ID' ) ) ) {
-        $logo_option = 'text-description-only';
+	if ( ! in_array( $logo_option, array( 'text-only', 'logo-only', 'text-logo', 'display-none' ) ) ) {
+        $logo_option = 'text-only';
     } 
 
     return $logo_option;
@@ -365,4 +383,35 @@ function facebook_javascript_sdk(){
     <?php
 }
 
+
+function tieronetwo_social_sharing(){
+ 
+    ?>
+    <div class="sm-action center-align hide-on-med-and-down">
+        <?php echo setPostLike(get_the_ID());?>
+        <?php 
+        $url = get_the_permalink(); 
+        $url = urlencode(esc_url($url));?>
+        <a class="facebook btn-large btn" href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target='_blank'>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a class="twitter btn-large btn" target='_blank' href='https://twitter.com/share?url=<?php echo $url; ?>'>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a class="linkedin btn-large btn" target='_blank' href='http://www.linkedin.com/shareArticle?url=<?php echo $url; ?>'>
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a class="reddit btn-large btn" target='_blank' href='http://reddit.com/submit?url=<?php echo $url; ?>'>
+            <i class="fa fa-reddit-alien" aria-hidden="true"></i>
+        </a>
+        <a class="google-plus btn-large btn" target='_blank' href='https://plus.google.com/share?url=<?php echo $url; ?>'>
+            <i class="fa fa-google-plus" aria-hidden="true"></i>
+        </a>
+        <?php $image = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0] : get_first_image() ; ?>
+        <a class="pinterest btn-large btn" target='_blank' href='http://pinterest.com/pin/create/link/?url=<?php echo $url; ?>&media=<?php echo esc_url( $image ); ?>&description=<?php urlencode(the_title()) ;?>'>
+            <i class="fa fa-pinterest" aria-hidden="true"></i>
+        </a>
+    </div>
+    <?php
+}
 

@@ -42,11 +42,6 @@ function tonetwo_copyright() {
     return $output;
 }
 
-function custom_image_sizes(){
-    add_image_size( 'trend-size', 217, 234, true );
-    
-}
-add_action( 'after_setup_theme', 'custom_image_sizes');
 
 function get_first_image() {
     global $post, $posts;
@@ -61,6 +56,39 @@ function get_first_image() {
     endif;
 
     return $first_img;
+}
+
+function get_attachment_id( $url ) {
+	$attachment_id = 0;
+	$dir = wp_upload_dir();
+	if ( false !== strpos( $url, $dir['baseurl'] . '/' ) ) { // Is URL in uploads directory?
+		$file = basename( $url );
+		$query_args = array(
+			'post_type'   => 'attachment',
+			'post_status' => 'inherit',
+			'fields'      => 'ids',
+			'meta_query'  => array(
+				array(
+					'value'   => $file,
+					'compare' => 'LIKE',
+					'key'     => '_wp_attachment_metadata',
+				),
+			)
+		);
+		$query = new WP_Query( $query_args );
+		if ( $query->have_posts() ) {
+			foreach ( $query->posts as $post_id ) {
+				$meta = wp_get_attachment_metadata( $post_id );
+				$original_file       = basename( $meta['file'] );
+				$cropped_image_files = wp_list_pluck( $meta['sizes'], 'file' );
+				if ( $original_file === $file || in_array( $file, $cropped_image_files ) ) {
+					$attachment_id = $post_id;
+					break;
+				}
+			}
+		}
+	}
+	return $attachment_id;
 }
 
 remove_filter( 'the_excerpt', 'wpautop' );
@@ -110,8 +138,8 @@ add_filter( 'wpseo_locale', 'yst_wpseo_change_og_locale' );
 
 function jquery_enqueue_with_fallback() {
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery' , '//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js', false, '1.12.0', true );
-    wp_add_inline_script( 'jquery', 'window.jQuery||document.write(\'<script src="'.esc_url(get_template_directory_uri()).'/libs/js/jquery.js"><\/script>\')' );
+    wp_register_script( 'jquery' , 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js', false, '3.1.1', true );
+    wp_add_inline_script( 'jquery', 'window.jQuery||document.write(\'<script src="'.esc_url(includes_url()).'libs/js/jquery.js"><\/script>\')' );
     wp_enqueue_script( 'jquery' );
 }
 add_action( 'wp_enqueue_scripts' , 'jquery_enqueue_with_fallback' );
