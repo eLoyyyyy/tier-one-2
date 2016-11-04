@@ -56,6 +56,8 @@ require get_stylesheet_directory() . '/inc/features/like-system.php';
 
 require get_stylesheet_directory() . '/inc/features/widgets/banner-promo-ads-widget.php';
 
+require get_stylesheet_directory() . '/inc/features/widgets/banner_ad_widgets_two.php';
+
 require get_stylesheet_directory() . '/inc/features/widgets/social-media-widget.php';
 
 require get_stylesheet_directory() . '/inc/features/widgets/top-rated-widget.php';
