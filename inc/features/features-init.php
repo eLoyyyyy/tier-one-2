@@ -384,34 +384,4 @@ function facebook_javascript_sdk(){
 }
 
 
-function tieronetwo_social_sharing(){
- 
-    ?>
-    <div class="sm-action center-align hide-on-med-and-down">
-        <?php echo setPostLike(get_the_ID());?>
-        <?php 
-        $url = get_the_permalink(); 
-        $url = urlencode(esc_url($url));?>
-        <a class="facebook btn-large btn" href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target='_blank'>
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a class="twitter btn-large btn" target='_blank' href='https://twitter.com/share?url=<?php echo $url; ?>'>
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a class="linkedin btn-large btn" target='_blank' href='http://www.linkedin.com/shareArticle?url=<?php echo $url; ?>'>
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-        </a>
-        <a class="reddit btn-large btn" target='_blank' href='http://reddit.com/submit?url=<?php echo $url; ?>'>
-            <i class="fa fa-reddit-alien" aria-hidden="true"></i>
-        </a>
-        <a class="google-plus btn-large btn" target='_blank' href='https://plus.google.com/share?url=<?php echo $url; ?>'>
-            <i class="fa fa-google-plus" aria-hidden="true"></i>
-        </a>
-        <?php $image = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0] : get_first_image() ; ?>
-        <a class="pinterest btn-large btn" target='_blank' href='http://pinterest.com/pin/create/link/?url=<?php echo $url; ?>&media=<?php echo esc_url( $image ); ?>&description=<?php urlencode(the_title()) ;?>'>
-            <i class="fa fa-pinterest" aria-hidden="true"></i>
-        </a>
-    </div>
-    <?php
-}
 

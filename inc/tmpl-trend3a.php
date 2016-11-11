@@ -14,11 +14,19 @@ endif; ?>
                 <?php $logo = get_theme_mod( 'site_logo', '' ); 
                 if ( !empty($logo) ) : ?>
                 <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                    <meta itemprop="url" content="<?php echo esc_url( $logo ); ?>">
-                </span>
+                        <meta itemprop="url" content="<?php echo esc_url( $logo ); ?>">
+                        <?php list($width, $height, $type, $attr) = getimagesize($logo);  ?>
+                        <meta itemprop="width" content="<?php echo $width; ?>">
+                        <meta itemprop="height" content="<?php echo $height; ?>">
+                    </span>
                 <?php endif; ?>
                 <meta itemprop="name" content="<?php bloginfo( 'name' ); ?>">
             </span>
+            <?php 
+                global $lang_support;
+                $lang = get_theme_mod( 'force_locale', 'en' );
+            ?>
+            <meta itemprop="inLanguage" content="<?php echo $lang_support['html'][$lang]; ?>">
         </header>
         <div class="trend-image">
             <?php $categories = get_the_category();

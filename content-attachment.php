@@ -9,7 +9,7 @@ endif;
 
         
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
         <link itemprop="mainEntityOfPage" href="<?php echo esc_url( get_permalink() );?>" />
         <header class="genpost-entry-header">
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">

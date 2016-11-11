@@ -71,8 +71,6 @@ class tonetwo_social_media_widget extends WP_Widget {
         <div class="divider"></div>
         <?php 
 
-        // This is where you run the code and display the output
-        echo __( $rp, 'wpb_widget_domain' );
     }
 
     // Updating widget replacing old instances with new

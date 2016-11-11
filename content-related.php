@@ -30,9 +30,9 @@ if ( $posts_related->have_posts() ) :
 
     <div class="row clearfix">
         <?php while( $posts_related->have_posts() ) : $posts_related->the_post(); ?>
-            <article class="col l4 m6 s12" itemscope itemtype="http://schema.org/ItemPage">
-                <div class="card small">
-                    <figure class="figure card" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+            <article class="col l4 m6 s12" itemprop="blogPost" itemscope itemtype="http://schema.org/ItemPage">
+                <div class="card">
+                    <figure class="figure card z-depth-0" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                         <?php if (has_post_thumbnail() ) { ?>
                         <meta itemprop="url" content="<?php the_post_thumbnail_url(); ?>">
                         <?php

@@ -94,6 +94,7 @@ function setPostLike($post_id)
 
     }
  
+    $output = '';
     if( hasAlreadyVoted($post_id) ){
         $output .= '<a class="blue-grey darken-4 btn-large btn post-like disabled" href="#" data-post_id="'.$post_id.'">
                         <i class="fa fa-heart"></i> <span class="count">' . $vote_count .'</span>

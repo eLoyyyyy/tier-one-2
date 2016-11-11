@@ -22,7 +22,7 @@ get_header(); ?>
                 // The Loop
                 while ( have_posts() ) : the_post(); ?>
 
-                <article class="section">
+                <article class="section" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
                     <link itemprop="mainEntityOfPage" href="<?php echo esc_url( get_permalink() );?>" />
                     <header class="entry-meta site-meta-t">
                         <meta itemprop="author" content="<?php the_author();?>">
@@ -37,6 +37,11 @@ get_header(); ?>
                             <?php endif; ?>
                             <meta itemprop="name" content="<?php bloginfo( 'name' ); ?>">
                         </span>
+                        <?php 
+                            global $lang_support;
+                            $lang = get_theme_mod( 'force_locale', 'en' );
+                        ?>
+                        <meta itemprop="inLanguage" content="<?php echo $lang_support['html'][$lang]; ?>">
                     </header>
                     <h2 class="h5"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                     <div class="card medium horizontal">

@@ -62,7 +62,7 @@ class tonetwo_promo_ads_widget extends WP_Widget {
         $titleimg_6  = $instance['titleimg_6']; 
 
 
-        echo $before_widget;     
+        //echo $before_widget;     
 ?>
 
 
@@ -113,7 +113,7 @@ class tonetwo_promo_ads_widget extends WP_Widget {
 		<div class="divider"></div>
 
     <?php
-        echo $after_widget;
+        //echo $after_widget;
     }
 
 

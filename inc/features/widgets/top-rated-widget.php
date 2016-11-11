@@ -41,7 +41,7 @@ class tonetwo_top_rated_widget extends WP_Widget {
         ?>
         <aside>
             <div class="section">
-                <h1 class="h5 center-align" style="font-weight: bold"><?php echo $args['before_title'] . $title . $args['after_title'] ;?></h1>
+                <h1 class="h5 center-align" style="font-weight: bold"><?php echo $title;?></h1>
             </div>
             <div class="divider"></div>
         <?php if ( $query->have_posts() ) : ?>
@@ -86,9 +86,6 @@ class tonetwo_top_rated_widget extends WP_Widget {
 
         <?php
         wp_reset_query();
-
-        // This is where you run the code and display the output
-        echo __( $rp, 'wpb_widget_domain' );
     }
 
     // Widget Backend 

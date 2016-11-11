@@ -19,7 +19,7 @@ class Tier_One_Two_Widget extends WP_Widget{
         $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
         $text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
         echo $before_widget;
-        if ( !empty( $title ) ) { echo $before_title . $title . $after_title; } ?>
+        /*if ( !empty( $title ) ) { echo $before_title . $title . $after_title; } */?>
             <?php echo !empty( $instance['filter'] ) ? wpautop( $text ) : $text; ?>
         <?php
         echo $after_widget;

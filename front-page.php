@@ -17,13 +17,13 @@ get_header(); ?>
                         array(
                             'key'     => 'post_views_count',
                                         'orderby' => 'meta_value',
-                                        'order' => DESC
+                                        'order' => 'DESC'
                             ,
                         ),
                         array(
                             'key'     => 'votes_count',
                                         'orderby' => 'meta_value_num',
-                                        'order' => DESC
+                                        'order' => 'DESC'
                         ),
                     ),
                 );
@@ -39,12 +39,12 @@ get_header(); ?>
                                 <?php if ( has_post_thumbnail() ) { ?>
                                         <a href="<?php the_permalink(); ?>">
                                             <div class="overlay blue-green darken-4">
-                                                <img class="responsive-img" src="<?php the_post_thumbnail_url( 'front-page-slider' ); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" itemprop="image">
+                                                <img class="responsive-img" src="<?php the_post_thumbnail_url( 'front-page-slider' ); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'">
                                             </div>
                                         </a>
                                 <?php } else { ?>
                                         <a href="<?php the_permalink(); ?>">
-                                            <div class="overlay blue-green darken-4"><img class="responsive-img" src="<?php echo get_first_image(); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'" itemprop="image" /></div>
+                                            <div class="overlay blue-green darken-4"><img class="responsive-img" src="<?php echo get_first_image(); ?>" onerror="javascript:this.src='<?php echo get_template_directory_uri() . "/images/default.jpg"; ?>'"/></div>
                                         </a>
                                 <?php } ?>
                                 <div class="caption left-align">
@@ -70,13 +70,13 @@ get_header(); ?>
                         array(
                             'key'     => 'post_views_count',
                                         'orderby' => 'meta_value',
-                                        'order' => DESC
+                                        'order' => 'DESC'
                             ,
                         ),
                         array(
                             'key'     => 'votes_count',
                                         'orderby' => 'meta_value_num',
-                                        'order' => DESC
+                                        'order' => 'DESC'
                         ),
                     ),
                 );

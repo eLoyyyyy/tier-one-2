@@ -22,6 +22,7 @@
                         <meta itemprop="author" content="<?php the_author();?>">
                         <meta itemprop="datePublished" content="<?php the_time('c'); ?> ">
                         <meta itemprop="dateModified" content="<?php the_modified_time('c'); ?>">
+                        <meta itemprop="inLanguage" content="<?php echo $lang_support['html'][$lang]; ?>">
                     </header>
                     <h2 class="h5" itemprop="headline"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                     <div class="card medium horizontal">

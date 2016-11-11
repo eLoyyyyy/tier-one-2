@@ -20,7 +20,7 @@ class wp_materialize_navwalker extends Walker {
         );
         $class_names = implode( ' ', $classes );
         // Build HTML for output.
-        $output .= "\n" . $indent . '<ul role=\"menu\" class="' . $class_names . '">' . "\n";
+        $output .= "\n" . $indent . ' role="menu" class="' . $class_names . '">' . "\n";
     }
     
     function end_lvl( &$output, $depth = 0, $args = array() ) {
